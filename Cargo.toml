@@ -1,0 +1,8 @@
+[package]
+name = "physics"
+version = "0.1.0"
+authors = ["Erlend Hofstad Langseth <3rlendhl@gmail.com>"]
+
+[dependencies]
+tile_net = { git = "https://github.com/BourgondAries/TileNet" }
+glium = "*"
