@@ -25,13 +25,13 @@ pub struct Graphics<'a> {
 impl<'a> Graphics<'a> {
     pub fn new(display: &'a Display, world: &'a World) -> Graphics<'a> {
         let shader_prg = create_program(display, "xyuv_tex");
-        let fullscreen_quad = vec![ Vertex { pos: [-1.0, -1.0], texpos: [0.0, 0.0]},
-                                    Vertex { pos: [1.0, -1.0],  texpos: [1.0, 0.0]},
-                                    Vertex { pos: [1.0, 1.0],   texpos: [1.0, 1.0]},
+        let fullscreen_quad = vec![ Vertex { pos: [-1.0, -1.0], texpos: [0.0, 1.0]},
+                                    Vertex { pos: [1.0, -1.0],  texpos: [1.0, 1.0]},
+                                    Vertex { pos: [1.0, 1.0],   texpos: [1.0, 0.0]},
 
-                                    Vertex { pos: [1.0, 1.0],   texpos: [1.0, 1.0]},
-                                    Vertex { pos: [-1.0, 1.0],  texpos: [0.0, 1.0]},
-                                    Vertex { pos: [-1.0, -1.0], texpos: [0.0, 0.0]}];
+                                    Vertex { pos: [1.0, 1.0],   texpos: [1.0, 0.0]},
+                                    Vertex { pos: [-1.0, 1.0],  texpos: [0.0, 0.0]},
+                                    Vertex { pos: [-1.0, -1.0], texpos: [0.0, 1.0]}];
 
         let quad_vbo = glium::VertexBuffer::new(display, &fullscreen_quad).unwrap();
         let texture_data: Vec<Vec<u8>> = vec!(vec!(0; world.get_width()); world.get_height());
@@ -49,14 +49,21 @@ impl<'a> Graphics<'a> {
         new
     }
 
-    pub fn render(&mut self, center_x: u32, center_y: u32, width: u32, height: u32) {
+    pub fn render(&mut self, left: f32, top: f32, width: u32, height: u32) {
         let mut target = self.display.draw();        // target: glium::Frame
         target.clear_color(0.0, 0.0, 0.0, 1.0);
 
         // RENDER 
 
+        let tex_left = left / (self.world.get_width() as f32);
+        let tex_top = top / (self.world.get_height() as f32);
+        let tex_width = (width as f32) / (self.world.get_height() as f32);
+        let tex_height = (height as f32) / (self.world.get_height() as f32);
+
         let uniforms = uniform! (
             sampler: &self.texture,
+            tex_lefttop: [tex_left, tex_top],
+            tex_size: [tex_width, tex_height],
         );
         let indices = glium::index::NoIndices(glium::index::PrimitiveType::TrianglesList);
         target.draw(self.quad_vbo.slice(0..6).unwrap(), indices, &self.shader_prg, &uniforms, &Default::default()).unwrap();
@@ -73,7 +80,7 @@ impl<'a> Graphics<'a> {
             data: Cow::Borrowed(self.world.get_tiles().get_raw()),
             width: self.world.get_width() as u32,
             height: self.world.get_height() as u32,
-            format: ClientFormat::U32,
+            format: ClientFormat::U8,
         };
 
 
