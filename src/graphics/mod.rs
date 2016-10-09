@@ -61,7 +61,7 @@ impl<'a> Graphics<'a> {
         let tex_height = (height as f32) / (self.world.get_height() as f32);
 
         let uniforms = uniform! (
-            sampler: &self.texture,
+            sampler: glium::uniforms::Sampler::new(&self.texture).wrap_function(glium::uniforms::SamplerWrapFunction::Clamp),
             tex_lefttop: [tex_left, tex_top],
             tex_size: [tex_width, tex_height],
         );
