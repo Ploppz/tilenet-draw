@@ -3,7 +3,7 @@ name = "physics"
 version = "0.1.0"
 dependencies = [
  "glium 0.15.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "tile_net 1.0.0 (git+https://github.com/BourgondAries/TileNet)",
+ "tile_net 1.1.1 (git+https://github.com/BourgondAries/TileNet)",
 ]
 
 [[package]]
@@ -351,7 +351,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
 name = "serde"
-version = "0.8.11"
+version = "0.8.12"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
@@ -362,7 +362,7 @@ dependencies = [
  "dtoa 0.2.2 (registry+https://github.com/rust-lang/crates.io-index)",
  "itoa 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "num-traits 0.1.36 (registry+https://github.com/rust-lang/crates.io-index)",
- "serde 0.8.11 (registry+https://github.com/rust-lang/crates.io-index)",
+ "serde 0.8.12 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
@@ -410,8 +410,8 @@ dependencies = [
 
 [[package]]
 name = "tile_net"
-version = "1.0.0"
-source = "git+https://github.com/BourgondAries/TileNet#f75a46e773d598df66fa04c9af29e50fd42175c0"
+version = "1.1.1"
+source = "git+https://github.com/BourgondAries/TileNet#746e5d43d8fce9f588640aad2c1b1cd0bc7aec32"
 dependencies = [
  "interleave 1.0.1 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
@@ -550,14 +550,14 @@ dependencies = [
 "checksum rustc_version 0.1.7 (registry+https://github.com/rust-lang/crates.io-index)" = "c5f5376ea5e30ce23c03eb77cbe4962b988deead10910c372b226388b594c084"
 "checksum semver 0.1.20 (registry+https://github.com/rust-lang/crates.io-index)" = "d4f410fedcf71af0345d7607d246e7ad15faaadd49d240ee3b24e5dc21a820ac"
 "checksum serde 0.7.15 (registry+https://github.com/rust-lang/crates.io-index)" = "1b0e0732aa8ec4267f61815a396a942ba3525062e3bd5520aa8419927cfc0a92"
-"checksum serde 0.8.11 (registry+https://github.com/rust-lang/crates.io-index)" = "15db662ce4b837aac5731c52fe732d84a00f909763236289587cb7ca6985f6d8"
+"checksum serde 0.8.12 (registry+https://github.com/rust-lang/crates.io-index)" = "f6b2f52afebb4708a21b9d721dbac942daa010f8478c6486daa48d62d5c70508"
 "checksum serde_json 0.8.2 (registry+https://github.com/rust-lang/crates.io-index)" = "e5b3bb42fa42265df8a1822b3db2090bc8f9e17e8142599c76a5b854bc4e7b5b"
 "checksum shared_library 0.1.5 (registry+https://github.com/rust-lang/crates.io-index)" = "fb04126b6fcfd2710fb5b6d18f4207b6c535f2850a7e1a43bcd526d44f30a79a"
 "checksum shell32-sys 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)" = "72f20b8f3c060374edb8046591ba28f62448c369ccbdc7b02075103fb3a9e38d"
 "checksum smallvec 0.1.8 (registry+https://github.com/rust-lang/crates.io-index)" = "fcc8d19212aacecf95e4a7a2179b26f7aeb9732a915cf01f05b0d3e044865410"
 "checksum target_build_utils 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)" = "7a1be18d4d908e4e5697908de04fdd5099505463fc8eaf1ceb8133ae486936aa"
 "checksum tempfile 2.1.4 (registry+https://github.com/rust-lang/crates.io-index)" = "9270837a93bad1b1dac18fe67e786b3c960513af86231f6f4f57fddd594ff0c8"
-"checksum tile_net 1.0.0 (git+https://github.com/BourgondAries/TileNet)" = "<none>"
+"checksum tile_net 1.1.1 (git+https://github.com/BourgondAries/TileNet)" = "<none>"
 "checksum user32-sys 0.1.2 (registry+https://github.com/rust-lang/crates.io-index)" = "6717129de5ac253f5642fc78a51d0c7de6f9f53d617fc94e9bae7f6e71cf5504"
 "checksum wayland-client 0.5.12 (registry+https://github.com/rust-lang/crates.io-index)" = "ced3094c157b5cc0a08d40530e1a627d9f88b9a436971338d2646439128a559e"
 "checksum wayland-kbd 0.3.6 (registry+https://github.com/rust-lang/crates.io-index)" = "73bc10e84c1da90777beffecd24742baea17564ffc2a9918af41871c748eb050"

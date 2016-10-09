@@ -17,6 +17,8 @@ pub mod world;
 
 fn main() {
     let mut world = World::new(30, 30);
+    world.get_tiles_mut().set_row(&255, 2);
+
     let display = glutin::WindowBuilder::new().build_glium().unwrap();
     let mut graphics = Graphics::new(&display, &world);
     loop {
