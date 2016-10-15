@@ -11,7 +11,7 @@ pub struct World {
 impl World {
     pub fn new(width: usize, height: usize) -> World {
         World {
-            tiles: TileNet::<Tile>::new((width, height)),
+            tiles: TileNet::<Tile>::new(width, height),
             width: width,
             height: height,
         }
