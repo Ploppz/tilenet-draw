@@ -1,3 +1,7 @@
+#![cfg_attr(feature = "dev", allow(unstable_features))]
+#![cfg_attr(feature = "dev", feature(plugin))]
+#![cfg_attr(feature = "dev", plugin(clippy))]
+
 extern crate tile_net;
 #[macro_use]
 extern crate glium;
@@ -5,8 +9,6 @@ extern crate glium;
 use tile_net::TileNet;
 
 use glium::{ DisplayBuild, glutin };
-use glium::glutin::{Event, MouseScrollDelta, ElementState, MouseButton, WindowBuilder};
-use glium::backend::glutin_backend::GlutinFacade;
 
 use graphics::Graphics;
 use world::World;

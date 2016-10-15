@@ -4,5 +4,10 @@ version = "0.1.0"
 authors = ["Erlend Hofstad Langseth <3rlendhl@gmail.com>"]
 
 [dependencies]
+clippy = { version = "0.0", optional = true }
 tile_net = "1"
 glium = "*"
+
+[features]
+default = []
+dev = ["clippy"]

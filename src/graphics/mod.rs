@@ -6,9 +6,7 @@ use std::borrow::Cow;
 use glium;
 use glium::{ Surface, Display, VertexBuffer, Rect };
 use glium::texture::{ Texture2d, ClientFormat, RawImage2d };
-use glium::backend::Facade;
 
-use tile_net::TileNet;
 use world::World;
 
 
@@ -16,7 +14,7 @@ pub struct Graphics<'a> {
     display: &'a Display,
     world: &'a World,
 
-    // OpenGL 
+    // OpenGL
     shader_prg: glium::Program,
     quad_vbo: VertexBuffer<Vertex>,
     texture: Texture2d,
@@ -53,7 +51,7 @@ impl<'a> Graphics<'a> {
         let mut target = self.display.draw();        // target: glium::Frame
         target.clear_color(0.0, 0.0, 0.0, 1.0);
 
-        // RENDER 
+        // RENDER
 
         let tex_left = left / (self.world.get_width() as f32);
         let tex_top = top / (self.world.get_height() as f32);
@@ -71,7 +69,7 @@ impl<'a> Graphics<'a> {
 
         // END
 
-        target.finish().unwrap(); 
+        target.finish().unwrap();
     }
 
     fn upload_world(&mut self) {
@@ -100,15 +98,16 @@ implement_vertex!(Vertex, pos, texpos);
 
 
 //// Helpers ////
-pub fn create_program<'a, F>(display: &'a F, name: &'static str) -> glium::Program
+pub fn create_program<F>(display: &F, name: &'static str) -> glium::Program
     where F: glium::backend::Facade
 {
     let mut f = File::open("shaders/".to_string() + name + ".vert").unwrap();
     let mut vert_src = String::new();
-    f.read_to_string(&mut vert_src);
+    // This means we explicitly ignore the return value
+    let _ = f.read_to_string(&mut vert_src);
     f = File::open("shaders/".to_string() + name + ".frag").unwrap();
     let mut frag_src = String::new();
-    f.read_to_string(&mut frag_src);
+    let _ = f.read_to_string(&mut frag_src);
 
     glium::Program::from_source(display, vert_src.as_str(), frag_src.as_str(), None).unwrap()
 }
